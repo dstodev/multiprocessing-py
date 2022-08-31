@@ -27,14 +27,13 @@ def main():
     pool.join()  # join() will block until all processes complete
 
     # Numbers are printed in order, but the returned values are not in order.
-    # This is because they are printed in "time sort" order--numbers print
+    # This is because they are printed in "time sort" order: numbers print
     # after waiting, in time, their value multiplied by some scalar.
-    # However, the order of returned values is not in order, but is still
-    # deterministic: [2, 1, 0, 3].
-    # This is because while map_async() (and starmap_async()) wait for all
+    # However, the order of returned values is not in order: [2, 1, 0, 3].
+    # This is because map_async() (and starmap_async()) wait for all
     # function calls to complete before giving the full list of results to
-    # the callback, apply_async() gives the result to the callback immediately
-    # after the function completes.
+    # the callback, so are able to preserve order. apply_async() gives
+    # the result to the callback immediately after the function completes.
 
     print(numbers)
 
