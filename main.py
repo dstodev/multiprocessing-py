@@ -17,7 +17,7 @@ def main():
     #   numbers.extend([2, 1, 0])
     job_map = pool.map_async(print_number, (2, 1, 0), callback=numbers.extend)
 
-    # Using apply_async(), print_number is called once on the pool:
+    # Using apply_async(), print_number() is called once on the pool:
     #   print_number(3)
     # and the returned value is provided to the callback function:
     #   numbers.append(3)
